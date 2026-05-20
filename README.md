@@ -1,5 +1,7 @@
 # 🛡️Spam Classifier
 
+🌐 **Live Demo:** https://your-streamlit-app-link.streamlit.app
+
 An end-to-end Machine Learning project to detect whether a given message (Email, SMS, or text) is **Spam / Phishing** or **Safe (Ham)**. This project includes a complete pipeline: from data merging and natural language preprocessing, to training multiple models and serving predictions via a sleek Streamlit web application.
 
 ## 🚀 Features
@@ -8,6 +10,22 @@ An end-to-end Machine Learning project to detect whether a given message (Email,
 - **Model Training Pipeline**: Evaluates multiple machine learning algorithms (`Logistic Regression`, `SVM`, `Naive Bayes`, `Random Forest`, `XGBoost`) using a `TfidfVectorizer` (up to 10,000 features). Automatically selects and saves the best-performing model based on the F1 Score.
 - **Beautiful Streamlit Web App**: A premium UI with caching, glassmorphism design, and real-time inference confidence scores.
 - **CLI Support**: A terminal-based python script for testing predictions quickly.
+
+---
+
+# 📈 Model Performance
+
+| Model | F1 Score |
+|---|---|
+| Logistic Regression | 0.9851 |
+| SVM | 0.9879 |
+| Naive Bayes | 0.9782 |
+| Random Forest | 0.9724 |
+| XGBoost | 0.9843 |
+
+✅ **Best Model:** Support Vector Machine (SVM)
+
+---
 
 ## 📂 Project Structure
 ```text
