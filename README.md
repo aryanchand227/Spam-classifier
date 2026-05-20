@@ -1,6 +1,6 @@
 # 🛡️Spam Classifier
 
-🌐 **Live Demo:** https://your-streamlit-app-link.streamlit.app
+🌐 **Live Demo:** (https://spam-classifier-tac.streamlit.app/)
 
 An end-to-end Machine Learning project to detect whether a given message (Email, SMS, or text) is **Spam / Phishing** or **Safe (Ham)**. This project includes a complete pipeline: from data merging and natural language preprocessing, to training multiple models and serving predictions via a sleek Streamlit web application.
 
