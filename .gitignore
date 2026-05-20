@@ -4,8 +4,6 @@ __pycache__/
 env/
 venv/
 
-saved_models/
-*.pkl
 
 .ipynb_checkpoints/
 
