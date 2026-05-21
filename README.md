@@ -1,13 +1,13 @@
 # 🛡️ Interactive Self-Improving Spam Classifier
 
-<<<<<<< HEAD
+
 🌐 **Live Demo:** (https://spam-classifier-tac.streamlit.app/)
 
 
 An end-to-end Machine Learning system to detect whether a given message (Email, SMS, or text) is **Spam / Phishing** or **Safe (Ham)**. This project is upgraded from a basic spam classifier to an **interactive self-improving NLP system** featuring a Human-in-the-Loop (HITL) active learning feedback loop, automatic feedback collection, and dynamic model retraining.
 
 ---
->>>>>>>
+
 
 ## 🚀 Features
 
