@@ -1,3 +1,11 @@
+import sys
+from pathlib import Path
+
+# Add project root to sys.path to ensure src imports resolve correctly
+project_root = str(Path(__file__).parent.parent.resolve())
+if project_root not in sys.path:
+    sys.path.append(project_root)
+
 import streamlit as st
 import joblib
 import re
