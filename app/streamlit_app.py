@@ -398,7 +398,7 @@ with tab2:
     retrain_btn = st.button("Retrain Models with Feedback 🔄", disabled=not retrain_allowed)
     
     if retrain_btn:
-        with st.spinner("Retraining NLP pipelines (Logistic Regression, SVM, Naive Bayes, Random Forest, XGBoost)..."):
+        with st.spinner("Retraining NLP pipelines"):
             try:
                 # Dynamically load the pipeline function
                 from src.models.train_models import run_training_pipeline
