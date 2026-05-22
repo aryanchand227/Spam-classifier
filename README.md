@@ -43,7 +43,7 @@ An end-to-end Machine Learning system to detect whether a given message (Email, 
  ┣ 📂 app
  ┃ ┗ 📜 streamlit_app.py        # Streamlit web application & feedback UI
  ┣ 📂 data
- ┃ ┣ 📂 raw                     # Raw datasets (email_spam.csv, spam.csv, etc.)
+ ┃ ┣ 📂 raw                     # Raw datasets (phishing_legit_dataset_KD_10000.csv, email_spam.csv, spam.csv, SMSSpamCollection)
  ┃ ┗ 📂 processed               # Processed/merged datasets
  ┃   ┣ 📜 processed_spam_dataset.csv # Base preprocessed dataset
  ┃   ┗ 📜 feedback_dataset.csv  # User-submitted active learning feedback [NEW]

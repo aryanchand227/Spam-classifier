@@ -87,11 +87,32 @@ df3 = df3[['text', 'label']]
 df3['source'] = 'sms'
 
 # =========================
+# DATASET 4 CLEANING
+# =========================
+
+df4 = pd.read_csv(
+    "data/raw/SMSSpamCollection",
+    sep='\t',
+    header=None,
+    names=['label', 'text'],
+    encoding='latin1'
+)
+
+df4['label'] = df4['label'].map({
+    'spam': 1,
+    'ham': 0
+})
+
+df4 = df4[['text', 'label']]
+
+df4['source'] = 'sms_legacy'
+
+# =========================
 # MERGE DATASETS
 # =========================
 
 combined_df = pd.concat(
-    [df1, df2, df3],
+    [df1, df2, df3, df4],
     ignore_index=True
 )
 
