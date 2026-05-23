@@ -235,15 +235,6 @@ def save_feedback(text, clean_text, label):
             st.error(f"Error writing feedback file: {e}")
 
 # =========================
-# DEVELOPER ACCESS CONTROL
-# =========================
-DEVELOPER_PASSWORD = os.getenv("DEVELOPER_PASSWORD", "developer123")  # Change this or set env variable
-
-def is_developer_authenticated():
-    """Check if user has authenticated as developer."""
-    return st.session_state.get("developer_authenticated", False)
-
-# =========================
 # STATE INITIALIZATION
 # =========================
 if "analyzed_text" not in st.session_state:
@@ -256,8 +247,6 @@ if "feedback_submitted" not in st.session_state:
     st.session_state.feedback_submitted = False
 if "show_correction_input" not in st.session_state:
     st.session_state.show_correction_input = False
-if "developer_authenticated" not in st.session_state:
-    st.session_state.developer_authenticated = False
 
 # =========================
 # MAIN APP HEADERS
@@ -265,31 +254,7 @@ if "developer_authenticated" not in st.session_state:
 st.markdown("<h1>🛡️ Interactive Spam Classifier</h1>", unsafe_allow_html=True)
 st.markdown("<div class='subtitle'>A Self-Improving NLP Classifier with Active Learning Feedback Loop</div>", unsafe_allow_html=True)
 
-# =========================
-# DEVELOPER AUTHENTICATION (shown only if not authenticated)
-# =========================
-if not is_developer_authenticated():
-    with st.form("developer_auth_form"):
-        st.markdown("### 🔐 Developer Authentication Required")
-        st.write("Enter the developer password to unlock full features:")
-        password_input = st.text_input(
-            "Developer Password:",
-            type="password",
-            placeholder="••••••••"
-        )
-        auth_submitted = st.form_submit_button("Unlock Developer Access 🔓", use_container_width=True)
-        
-        if auth_submitted:
-            if password_input == DEVELOPER_PASSWORD:
-                st.session_state.developer_authenticated = True
-                st.success("✅ Authentication successful! Reloading...")
-                st.rerun()
-            else:
-                st.error("❌ Incorrect password. Access denied.")
-    
-    st.stop()  # Stop execution here if not authenticated
-
-# Navigation Tabs (only shown to authenticated developers)
+# Navigation Tabs
 tab1, tab2 = st.tabs(["🔍 Message Analysis", "⚙️ Active Learning & Retraining"])
 
 # =========================
@@ -461,16 +426,3 @@ with tab2:
             except Exception as e:
                 st.error(f"Failed to complete retraining: {e}")
                 
-    # Feedback Data Table
-    if feedback_count > 0 and feedback_df is not None:
-        st.write("")
-        st.markdown("### 📋 Captured Feedback History")
-        
-        # Display latest entries
-        display_df = feedback_df.copy()
-        display_df["True Label"] = display_df["label"].map({1: "🚨 Spam", 0: "✅ Ham"})
-        
-        st.dataframe(
-            display_df.tail(10)[["timestamp", "text", "True Label"]].iloc[::-1],
-            use_container_width=True
-        )
